@@ -1,0 +1,18 @@
+td.main {
+    padding-bottom: 20px;
+    padding-right: 10px;
+    
+}
+
+td.footer, td.header {
+    font-size: 11px;
+    text-align: center;
+}
+
+td.footer, td.header {
+    background-color: #eee;
+}
+
+.tb {
+    border:1px solid #999;
+}
