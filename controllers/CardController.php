@@ -25,19 +25,27 @@ class CardController extends \yii\web\Controller {
         $pdf->render();
     }
     
-    public function actionDaily() {
-        return $this->render('daily_form');
+    public function actionGen() {
+        return $this->render('form');
     }
     
-    public function actionDailyHandler() {
+    public function actionGenHandler() {
         $num = $_POST['num'];
         $type = $_POST['type'];
         $arr_no = [];
         for ($i=0; $i<$num; $i++) {
-            $no = Util::next('card_no');
+            $no = Util::next($type);
+            
+            if ($no >= 10 && $no < 100) {
+                $no = '0'.$no;
+            } else if ($no < 10) {
+                $no = '00'.$no;
+            }
+            
+            $no = $type.$no;
+            $arr_no[] = $no;
             $card = new Card();
             $card->no = $no;
-            $arr_no[] = $no;
             $card->type = $type;
             $card->status = 'A';
             $card->create_dt = date('Y-m-d');
