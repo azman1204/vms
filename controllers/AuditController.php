@@ -7,7 +7,7 @@ use app\helpme\MyDate;
  
 class AuditController extends \app\components\Admin {
     public function actionList() {
-        $where = '1';
+        $where = '1';//comment here 
         if (isset($_POST['tarikh'])) {
             $tarikh = $_POST['tarikh'];
             $module = $_POST['module'];
